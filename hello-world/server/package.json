@@ -1,0 +1,14 @@
+{
+  "name": "hello-world-server",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "apollo-server": "^3.5.0"
+  }
+}
