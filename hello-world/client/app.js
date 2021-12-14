@@ -1,20 +1,24 @@
 const GRAPGQL_URL = 'http://localhost:9000/'
-
 async function fetchGreeting() {
-    const response = await fetch(GRAPGQL_URL,{
+    const response = await fetch(GRAPGQL_URL, {
         method: "POST",
         headers: {
             'content-type': 'application/json'
         },
-        body: jSON.stringify({
+        body: JSON.stringify({
             query: `
                 query {
                     greeting
                 }
             `
         })
-    })
-    const responseBody = await response.json();
-    console.log(responseBody)
-
+    });
+    const {data} = await response.json();
+    return data;
 }
+
+fetchGreeting().then(
+    ({greeting}) => {
+        const title = document.querySelector("h1");
+        title.textContent = greeting;
+});
